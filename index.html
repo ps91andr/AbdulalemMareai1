@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<!-- The lang and dir attributes will be updated by JavaScript -->
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- The title will be updated by JavaScript -->
+    <title data-key="page_title">Abdulalem Mareai - عبدالعليم العامري | رحّالة</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;900&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;900&display=swap');
+
+        :root {
+            --primary-color: #ff8c3b;
+            --secondary-color: #ff7e31;
+            --background-dark: #0d1117;
+            --background-light: #161b22;
+            --text-primary: #ffffff;
+            --text-secondary: #c9d1d9;
+            --border-color: #30363d;
+            
+            /* Social Colors */
+            --youtube-color: #FF0000;
+            --facebook-color: #1877f2;
+            --twitter-color: #1DA1F2;
+            --tiktok-color: #FE2C55;
+            --instagram-color: #E1306C;
+            --snapchat-color: #FFFC00;
+            --whatsapp-color: #25D366;
+            --paypal-color: #00457C;
+            --email-color: #c71610; /* Added for Email */
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'Tajawal', sans-serif;
+            background-color: var(--background-dark);
+            color: var(--text-primary);
+            overflow-x: hidden;
+        }
+        
+        body.lang-ar { font-family: 'Tajawal', sans-serif; }
+        body.lang-en, body.lang-de, body.lang-nl { font-family: 'Poppins', sans-serif; }
+        .cairo-font { font-family: 'Cairo', sans-serif; }
+        body.lang-en .cairo-font, body.lang-de .cairo-font, body.lang-nl .cairo-font { font-family: 'Poppins', sans-serif; font-weight: 900; }
+
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        .section { padding: 80px 0; }
+        .section-light { background-color: var(--background-light); }
+        .section-title { text-align: center; font-size: 2.8rem; font-weight: 900; margin-bottom: 60px; font-family: 'Cairo', sans-serif; }
+
+        /* --- Navbar --- */
+        .navbar {
+            padding: 25px 0;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            transition: padding 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+        }
+        .navbar.scrolled {
+            position: fixed;
+            padding: 15px 0;
+            background-color: var(--background-dark);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.25);
+        }
+        .nav-container { display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-size: 1.8rem; font-weight: 700; color: var(--text-primary); text-decoration: none; font-family: 'Cairo', sans-serif; }
+        .nav-links { display: flex; align-items: center; list-style: none; gap: 40px; }
+        .nav-links a { color: var(--text-secondary); text-decoration: none; font-weight: 500; font-size: 1rem; transition: color 0.3s ease; }
+        .nav-links a:hover { color: var(--primary-color); }
+        .mobile-menu-btn { display: none; font-size: 1.8rem; background: none; border: none; color: var(--text-primary); cursor: pointer; }
+        
+        /* Language Switcher */
+        .language-switcher { position: relative; cursor: pointer; padding-bottom: 20px; margin-bottom: -20px; }
+        .language-selected { color: var(--text-secondary); font-weight: 500; display: flex; align-items: center; gap: 8px; }
+        .language-selected:hover { color: var(--primary-color); }
+        .language-selected .fa-globe { font-size: 1.1rem; }
+        .language-dropdown { display: none; position: absolute; top: 100%; right: 0; background-color: var(--background-light); border: 1px solid var(--border-color); border-radius: 8px; list-style: none; padding: 10px 0; min-width: 120px; box-shadow: 0 4px 20px rgba(0,0,0,0.2); z-index: 1001; }
+        html[dir="ltr"] .language-dropdown { right: auto; left: 0; }
+        .language-switcher:hover .language-dropdown { display: block; }
+        .language-dropdown li a { display: block; padding: 8px 20px; color: var(--text-secondary); text-decoration: none; font-size: 0.95rem; }
+        .language-dropdown li a:hover { background-color: var(--primary-color); color: var(--background-dark); }
+
+        /* --- Hero Section --- */
+        .hero { min-height: 90vh; position: relative; display: flex; align-items: center; justify-content: flex-end; text-align: right; background: url('https://i.ibb.co/35NY4KDV/image.jpg') no-repeat center center/cover; padding-top: 100px; padding-bottom: 2vh; }
+        html[dir="ltr"] .hero { justify-content: flex-start; text-align: left; }
+        .hero::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+        html[dir="rtl"] .hero::before { background: linear-gradient(to left, rgba(13, 17, 23, 1) 25%, rgba(13, 17, 23, 0.3) 100%); }
+        html[dir="ltr"] .hero::before { background: linear-gradient(to right, rgba(13, 17, 23, 1) 25%, rgba(13, 17, 23, 0.3) 100%); }
+        .hero-content { position: relative; z-index: 2; }
+        .hero h1 { font-family: 'Cairo', sans-serif; font-size: 4.5rem; font-weight: 900; margin-bottom: 0.5rem; line-height: 1.2; }
+        .hero .subtitle { font-size: 1.5rem; font-weight: 400; color: var(--text-secondary); margin-bottom: 1rem; }
+        .hero .description { font-size: 1.1rem; max-width: 600px; margin-bottom: 2rem; color: var(--text-secondary); line-height: 1.7; }
+        .cta-button { display: inline-block; background-color: var(--primary-color); color: var(--background-dark); padding: 15px 40px; border-radius: 50px; text-decoration: none; font-weight: bold; font-size: 1.1rem; transition: all 0.3s ease; box-shadow: 0 4px 20px rgba(255, 140, 59, 0.3); }
+        .cta-button:hover { transform: translateY(-5px); box-shadow: 0 8px 30px rgba(255, 140, 59, 0.4); }
+
+        /* --- About & Journey Section --- */
+        .about-journey-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 60px; align-items: start; }
+        .about-me .profile-pic { width: 150px; height: 150px; border-radius: 50%; margin-bottom: 20px; border: 4px solid var(--border-color); object-fit: cover; }
+        .about-me blockquote { font-size: 1.5rem; font-family: 'Cairo', sans-serif; padding-right: 20px; margin-bottom: 25px; line-height: 1.6; }
+        html[dir="rtl"] .about-me blockquote { border-right: 4px solid var(--primary-color); }
+        html[dir="ltr"] .about-me blockquote { border-left: 4px solid var(--primary-color); padding-left: 20px; padding-right: 0; }
+        .about-me p { font-size: 1rem; line-height: 1.8; color: var(--text-secondary); }
+        .journey-stats-section { display: flex; flex-direction: column; gap: 40px; }
+        .stats-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        .stat-card { background: var(--background-light); padding: 25px; border-radius: 12px; text-align: center; }
+        .stat-card .stat-number { font-size: 2.5rem; font-weight: 900; color: var(--primary-color); }
+        .stat-card .stat-label { font-size: 1rem; color: var(--text-secondary); margin-top: 5px; }
+        .timeline { list-style: none; padding: 0; margin-top: 20px; }
+        .timeline-item { display: flex; align-items: center; padding: 15px 0; border-bottom: 1px solid var(--border-color); }
+        .timeline-item:last-child { border-bottom: none; }
+        .timeline-icon { width: 40px; height: 40px; border-radius: 50%; background-color: var(--primary-color); display: flex; align-items: center; justify-content: center; color: var(--background-dark); font-size: 1.2rem; flex-shrink: 0; }
+        html[dir="rtl"] .timeline-icon { margin-left: 20px; }
+        html[dir="ltr"] .timeline-icon { margin-right: 20px; }
+        .timeline-content .title { font-weight: 700; margin-bottom: 5px; }
+        .timeline-content .description { color: var(--text-secondary); font-size: 0.9rem; }
+        
+        /* --- Profiles Section (#digital-presence) --- */
+        .profiles-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 25px;
+        }
+        .profile-card {
+            background-color: var(--background-dark);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 25px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .profile-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+        .profile-card .avatar { width: 90px; height: 90px; border-radius: 50%; object-fit: cover; margin: 0 auto 15px auto; border: 3px solid var(--border-color); }
+        .profile-card h2 { font-size: 1.2rem; margin-bottom: 8px; font-family: 'Cairo', sans-serif;}
+        .profile-card p { color: var(--text-secondary); line-height: 1.6; margin-bottom: 15px; flex-grow: 1; }
+        .profile-card strong { color: var(--primary-color); font-size: 1.4rem; }
+        .profile-card .qr-code { position: absolute; top: 15px; right: 15px; opacity: 0; transition: opacity 0.3s ease; width: 60px; height: 60px; border-radius: 8px; }
+        html[dir="ltr"] .profile-card .qr-code { right: auto; left: 15px; }
+        .profile-card:hover .qr-code { opacity: 1; }
+        .profile-card > a:last-of-type, .profile-card .contact-buttons { margin-top: auto; /* Push to bottom */ }
+
+        .profile-card > a:not(.contact-buttons a) {
+            font-size: 2rem; color: var(--text-secondary); position: absolute; bottom: 15px; right: 20px; transition: color 0.3s ease, transform 0.3s ease;
+        }
+        html[dir="ltr"] .profile-card > a:not(.contact-buttons a) { right: auto; left: 20px; }
+        .profile-card > a:not(.contact-buttons a):hover { transform: scale(1.2); }
+        
+        .profile-card.youtube:hover > a:not(.contact-buttons a) { color: var(--youtube-color); }
+        .profile-card.facebook:hover > a:not(.contact-buttons a) { color: var(--facebook-color); }
+        .profile-card.twitter:hover > a:not(.contact-buttons a) { color: var(--twitter-color); }
+        .profile-card.tiktok:hover > a:not(.contact-buttons a) { color: var(--tiktok-color); }
+        .profile-card.instagram:hover > a:not(.contact-buttons a) { color: var(--instagram-color); }
+        .profile-card.snapchat:hover > a:not(.contact-buttons a) { color: var(--snapchat-color); }
+        .profile-card.email:hover > a:not(.contact-buttons a) { color: var(--email-color); }
+        
+        .total-card { background: linear-gradient(45deg, var(--primary-color), var(--secondary-color)); color: var(--background-dark); }
+        .total-card h2 { color: var(--background-dark); }
+        .total-card p { color: var(--background-light); }
+        .total-card strong { font-size: 3rem; color: white; }
+        .total-card .card-icon { font-size: 3rem; margin: 0 auto 15px auto; }
+        
+        .support a:not(.contact-buttons a) { background: var(--paypal-color); color: white; padding: 10px 20px; border-radius: 8px; text-decoration: none; display: inline-block; font-weight: bold; transition: background 0.3s; font-size: 1rem; position: static; }
+        .support a:not(.contact-buttons a):hover { background: #005ea6; transform: none; }
+        
+        .contact-buttons { display: flex; gap: 10px; justify-content: center; }
+        .contact-buttons a { background: var(--background-light); color: white; padding: 10px 15px; border-radius: 8px; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; transition: background 0.3s; font-size: 1rem; }
+        .contact-buttons a:hover { background: var(--border-color); }
+        .contact-buttons a .fab.fa-whatsapp { color: var(--whatsapp-color); }
+
+        /* --- Social Grid Section --- */
+        #social .container { text-align: center; }
+        .social-grid {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 25px;
+            margin-top: 40px;
+        }
+        .social-card-new {
+            background-color: var(--background-light);
+            border-radius: 12px;
+            padding: 30px 40px;
+            text-decoration: none;
+            color: var(--text-primary);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+            width: 200px;
+            border: 2px solid var(--border-color);
+            transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+        .social-icon-new {
+            font-size: 3rem;
+            color: var(--text-secondary);
+            transition: color 0.3s ease;
+        }
+        .social-card-new span {
+            font-size: 1.2rem;
+            font-weight: 600;
+            font-family: 'Cairo', sans-serif;
+        }
+        .social-card-new:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+        }
+        .social-card-new.youtube:hover { border-color: var(--youtube-color); }
+        .social-card-new.youtube:hover .social-icon-new { color: var(--youtube-color); }
+        .social-card-new.instagram:hover { border-color: var(--instagram-color); }
+        .social-card-new.instagram:hover .social-icon-new { color: var(--instagram-color); }
+        .social-card-new.facebook:hover { border-color: var(--facebook-color); }
+        .social-card-new.facebook:hover .social-icon-new { color: var(--facebook-color); }
+        .social-card-new.tiktok:hover { border-color: var(--tiktok-color); }
+        .social-card-new.tiktok:hover .social-icon-new { color: var(--tiktok-color); }
+        .social-card-new.twitter:hover { border-color: var(--twitter-color); }
+        .social-card-new.twitter:hover .social-icon-new { color: var(--twitter-color); }
+        .social-card-new.snapchat:hover { border-color: var(--snapchat-color); }
+        .social-card-new.snapchat:hover .social-icon-new { color: var(--snapchat-color); }
+        
+        /* --- Footer --- */
+        footer { padding: 25px 0; background-color: var(--background-light); border-top: 1px solid var(--border-color); }
+        .footer-container { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 15px; }
+        .footer-container p { color: var(--text-secondary); font-size: 0.9rem; }
+
+        /* --- Responsive --- */
+        @media (max-width: 992px) {
+            .nav-links { display: none; }
+            .mobile-menu-btn { display: block; }
+            .about-journey-grid { grid-template-columns: 1fr; }
+            .hero { text-align: center; justify-content: center; align-items: center; padding-bottom: 0; }
+            .hero-content { padding: 0 20px; }
+            .hero h1 { font-size: 3.5rem; }
+        }
+        @media (max-width: 768px) {
+            .stats-cards { grid-template-columns: 1fr; }
+            .footer-container { flex-direction: column; text-align: center; }
+        }
+        @media (max-width: 480px) {
+            .profiles-container { grid-template-columns: 1fr; }
+            .profile-card { padding: 20px; }
+            .hero h1 { font-size: 2.8rem; }
+            .social-card-new { width: 150px; padding: 25px 20px; }
+            .social-icon-new { font-size: 2.5rem; }
+        }
+    </style>
+</head>
+<body class="lang-ar">
+
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="#" class="logo cairo-font">Abdulalem Mareai</a>
+            <ul class="nav-links">
+                <li><a href="#about-journey" data-key="nav_about">عني</a></li>
+                <li><a href="#about-journey" data-key="nav_journey">رحلتي</a></li>
+                <li><a href="#digital-presence" data-key="nav_digital_presence">التواجد الرقمي</a></li>
+                <li><a href="#social" data-key="nav_contact">التواصل</a></li>
+                <li class="language-switcher">
+                    <div class="language-selected">
+                        <i class="fas fa-globe"></i>
+                        <span id="current-lang">العربية</span>
+                    </div>
+                    <ul class="language-dropdown">
+                        <li><a href="#" lang="ar">العربية</a></li>
+                        <li><a href="#" lang="en">English</a></li>
+                        <li><a href="#" lang="de">Deutsch</a></li>
+                        <li><a href="#" lang="nl">Nederlands</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <button class="mobile-menu-btn"><i class="fas fa-bars"></i></button>
+        </div>
+    </nav>
+    
+    <header class="hero">
+        <div class="container hero-content">
+            <h1 class="cairo-font">Abdulalem Mareai - عبدالعليم العامري</h1>
+            <p class="subtitle" data-key="hero_subtitle">عبدالعليم العامري | يوتيوبر رحالة، صانع محتوى، فلوكر</p>
+            <p class="description" data-key="hero_description">
+                إحسان يتلو إحسان حتى آخر لحظة في الحياة. بناسافر لنعيد اكتشاف الأمل في الإنسانية. بنكسر الحواجز، وبنقترب من الشعوب، وبنفهم الحقيقة، وبنعرف مين احنا كمان. قناتي منبر لكل عربي بيفكر بعمق. هانشوف سوا تجارب اجتماعية، تحليل سياسي، وأسئلة من شوارع أوروبا. هدفي جمع حكمة الشرق وحداثة الغرب، لأن الإحسان يتلو إحسان حتى آخر لحظة. انضموا لعائلتي المتواضعة (#عائلة_عليم) - أنا واثق إنكم مش هتندموا. ❤️
+            </p>
+            <a href="https://www.youtube.com/@aliim714" target="_blank" class="cta-button" data-key="hero_cta">اكتشف رحلاتي</a>
+        </div>
+    </header>
+
+    <main>
+        <section class="section" id="about-journey">
+            <div class="container about-journey-grid">
+                <div class="about-me">
+                    <img src="https://i.ibb.co/yc826sBj/2.jpg" alt="عبدالعليم العامري" class="profile-pic">
+                    <blockquote class="cairo-font" data-key="about_quote">
+                        أنا عبدالعليم العامري من اليمن وأعيش في هولندا، أقدم تحليلات سياسية وتجارب اجتماعية وأشارك رؤيتي الفكرية.
+                    </blockquote>
+                    <p data-key="about_p">أسلوبي المميز في تقديم التحليل السياسي والتجارب الاجتماعية جذب آلاف المهتمين بفهم التعقيدات الاجتماعية في أوروبا. قناتي ليست مجرد محتوى، بل هي دعوة للتفكير والنقاش، تفتح في كل فيديو أفقاً جديداً من الفهم والوعي. وهدفي أن أسافر كل أوروبا 🇪🇺 وأنقل لكم أعمق اللقاءات والحوارات من كل البلدان!</p>
+                </div>
+                <div class="journey-stats-section">
+                    <div class="stats-cards">
+                        <div class="stat-card"><div class="stat-number" data-target="1380000">0</div><div class="stat-label" data-key="stat1_label">مشاهدة واكثر</div></div>
+                        <div class="stat-card"><div class="stat-number" data-target="1470000">0</div><div class="stat-label" data-key="stat2_label">مشترك واكثر</div></div>
+                        <div class="stat-card"><div class="stat-number" data-target="248">0</div><div class="stat-label" data-key="stat3_label">فيديو واكثر</div></div>
+                        <div class="stat-card"><div class="stat-number" data-target="20">0</div><div class="stat-label" data-key="stat4_label">دولة واكثر زارها</div></div>
+                    </div>
+                    <ul class="timeline">
+                        <li class="timeline-item">
+                            <div class="timeline-icon"><i class="fas fa-users"></i></div>
+                            <div class="timeline-content">
+                                <div class="title" data-key="timeline1_title">بصمة رقمية مؤثرة</div>
+                                <div class="description" data-key="timeline1_desc">تأثير واسع في أنحاء الوطن العربي بملايين المتابعين.</div>
+                            </div>
+                        </li>
+                        <li class="timeline-item">
+                            <div class="timeline-icon"><i class="fas fa-globe-africa"></i></div>
+                            <div class="timeline-content">
+                                <div class="title" data-key="timeline2_title">الهدف العالمي</div>
+                                <div class="description" data-key="timeline2_desc">يسعى لتصوير فيديو من كل دولة في العالم، وقد أنجز الكثير.</div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="section section-light" id="digital-presence">
+            <div class="container">
+                <h2 class="section-title cairo-font" data-key="presence_title">التواجد الرقمي</h2>
+                <div class="profiles-container">
+                    <!-- Total Followers Card -->
+                    <div class="profile-card total-card">
+                        <div class="card-icon">
+                            <i class="fas fa-hashtag"></i>
+                        </div>
+                        <h2 data-key="total_title">الإجمالي على المنصات</h2>
+                        <p>
+                            <strong class="counter" data-target="3505000">0</strong><br>
+                            <span data-key="total_subtitle">متابع ومشترك</span>
+                        </p>
+                    </div>
+                    <!-- YouTube Card -->
+                    <div class="profile-card youtube">
+                        <img class="avatar" src="https://i.ibb.co/sp72NPgd/4.jpg" alt="YouTube Profile">
+                        <h2 data-key="platform_youtube">يوتيوب</h2>
+                        <p>@aliim714</p>
+                        <p>
+                            <strong class="counter" data-target="1470000">0</strong> <span data-key="stat2_label_short">مشترك</span><br>
+                            <strong class="counter" data-target="248">248</strong> <span data-key="stat3_label_short">فيديو</span>
+                        </p>
+                        <img class="qr-code" src="https://api.qrserver.com/v1/create-qr-code/?size=100x100&data=https://www.youtube.com/@aliim714" alt="YouTube QR Code">
+                        <a href="https://www.youtube.com/@aliim714" target="_blank"><i class="fab fa-youtube"></i></a>
+                    </div>
+                    <!-- Facebook -->
+                    <div class="profile-card facebook">
+                        <img class="avatar" src="https://i.ibb.co/sp72NPgd/4.jpg" alt="Facebook Profile">
+                        <h2 data-key="platform_facebook">فيسبوك</h2>
+                        <p data-key="facebook_bio"> شخص عادي جدا وعندي هواية السفر</p>
+                        <p><strong class="counter" data-target="363000">0</strong> <span data-key="followers">متابع</span></p>
+                        <img class="qr-code" src="https://api.qrserver.com/v1/create-qr-code/?size=100x100&data=https://www.facebook.com/aliim714" alt="Facebook QR Code">
+                        <a href="https://www.facebook.com/aliim714" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                    </div>
+					<!-- Twitter X -->
+                    <div class="profile-card twitter">
+                        <img class="avatar" src="https://i.ibb.co/sp72NPgd/4.jpg" alt="Twitter Profile">
+                        <h2 data-key="platform_twitter">تويتر (X)</h2>
+                        <p>@aliim714</p>
+                        <p><strong class="counter" data-target="635000">0</strong> <span data-key="followers">متابع</span></p>
+                        <img class="qr-code" src="https://api.qrserver.com/v1/create-qr-code/?size=100x100&data=https://x.com/aliim714" alt="Twitter QR Code">
+                        <a href="https://x.com/aliim714" target="_blank"><i class="fab fa-twitter"></i></a>
+                    </div>
+                    <!-- TikTok -->
+                    <div class="profile-card tiktok">
+                        <img class="avatar" src="https://i.ibb.co/sp72NPgd/4.jpg" alt="TikTok Profile">
+                        <h2 data-key="platform_tiktok">تيك توك</h2>
+                        <p data-key="tiktok_bio">يوتيوبر🧭</p>
+                        <p>
+                            <strong class="counter" data-target="670000">0</strong> <span data-key="followers">متابع</span><br>
+                            <strong class="counter" data-target="7500000">0</strong> <span data-key="likes">إعجاب</span>
+                        </p>
+                        <img class="qr-code" src="https://api.qrserver.com/v1/create-qr-code/?size=100x100&data=https://www.tiktok.com/@aliim715" alt="TikTok QR Code">
+                        <a href="https://www.tiktok.com/@aliim715" target="_blank"><i class="fab fa-tiktok"></i></a>
+                    </div>
+                    <!-- Instagram -->
+                    <div class="profile-card instagram">
+                        <img class="avatar" src="https://i.ibb.co/sp72NPgd/4.jpg" alt="Instagram Profile">
+                        <h2 data-key="platform_instagram">انستغرام</h2>
+                        <p data-key="instagram_bio">يوتيوبر🧭</p>
+                        <p><strong class="counter" data-target="268000">0</strong> <span data-key="followers">متابع</span></p>
+                        <img class="qr-code" src="https://api.qrserver.com/v1/create-qr-code/?size=100x100&data=https://www.instagram.com/aliim714" alt="Instagram QR Code">
+                        <a href="https://www.instagram.com/aliim714" target="_blank"><i class="fab fa-instagram"></i></a>
+                    </div>
+                    <!-- Snapchat -->
+                    <div class="profile-card snapchat">
+                        <img class="avatar" src="https://i.ibb.co/sp72NPgd/4.jpg" alt="Snapchat Profile">
+                        <h2 data-key="platform_snapchat">سناب شات</h2>
+                        <p>@aliim714</p>
+                        <p><strong class="counter" data-target="99000">0</strong> <span data-key="followers">متابع</span></p>
+                        <img class="qr-code" src="https://api.qrserver.com/v1/create-qr-code/?size=100x100&data=https://www.snapchat.com/add/aliim714" alt="Snapchat QR Code">
+                        <a href="https://www.snapchat.com/add/aliim714" target="_blank"><i class="fab fa-snapchat"></i></a>
+                    </div>
+                    <!-- Support Card -->
+                    <div class="profile-card support fade-in-up">
+                        <img class="avatar" src="https://i.ibb.co/sp72NPgd/4.jpg" alt="Support Profile">
+                        <h2>الدعم المادي للقناة</h2>
+                        <p>للدعم المادي للقناة والمساعدة على الاستمرار في تقديم محتوى هادف ومميز.</p>
+                        <img class="qr-code" src="https://api.qrserver.com/v1/create-qr-code/?size=100x100&data=https://www.paypal.com/paypalme/aliim714" alt="PayPal QR Code">
+                        <a href="https://www.paypal.com/paypalme/aliim714" target="_blank">ادعم عبر PayPal<i class="fab fa-paypal"></i></a>
+                    </div>
+                    <!-- Contact Card -->
+                    <div class="profile-card contact">
+                        <img class="avatar" src="https://i.ibb.co/sp72NPgd/4.jpg" alt="Contact Profile">
+                        <h2 data-key="contact_title">التواصل واتساب او اتصال</h2>
+                        <p data-key="contact_desc">للدعاية والشراكة يرجى التواصل مع مدير الأعمال واتس أو اتصال:<br><strong style="direction: ltr; display: inline-block; font-size: 1.2rem; letter-spacing: 1px;">0031 685 483 773</strong></p>
+                        <img class="qr-code" src="https://api.qrserver.com/v1/create-qr-code/?size=100x100&data=https://wa.me/31685483773" alt="WhatsApp QR Code">
+                        <div class="contact-buttons">
+                            <a href="https://wa.me/31685483773" target="_blank"><i class="fab fa-whatsapp"></i> <span data-key="contact_whatsapp">واتساب</span></a>
+                            <a href="tel:+31685483773" target="_blank"><i class="fas fa-phone"></i> <span data-key="contact_call">اتصال</span></a>
+                        </div>
+                    </div>
+                    <!-- Email Card -->
+                    <div class="profile-card email">
+                        <img class="avatar" src="https://i.ibb.co/sp72NPgd/4.jpg" alt="Email Profile">
+                        <h2>البريد الإلكتروني</h2>
+                        <p>لللإعلان والتواصل يرجى المراسلة على هذا الإيميل:<br><strong>a0liim714@gmail.com</strong></p>
+                        <img class="qr-code" src="https://api.qrserver.com/v1/create-qr-code/?size=100x100&data=mailto:a0liim714@gmail.com" alt="Email QR Code">
+                        <a href="mailto:a0liim714@gmail.com" target="_blank"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="social">
+            <div class="container">
+               <h2 class="section-title cairo-font" data-key="social_title">تابع المغامرة</h2>
+               <div class="social-grid">
+                   <a href="https://www.youtube.com/@aliim714" target="_blank" class="social-card-new youtube">
+                       <i class="fab fa-youtube social-icon-new"></i>
+                       <span class="cairo-font" data-key="platform_youtube">يوتيوب</span>
+                   </a>
+                   <a href="https://www.instagram.com/aliim714" target="_blank" class="social-card-new instagram">
+                       <i class="fab fa-instagram social-icon-new"></i>
+                       <span class="cairo-font" data-key="platform_instagram">انستغرام</span>
+                   </a>
+                   <a href="https://www.facebook.com/aliim714" target="_blank" class="social-card-new facebook">
+                       <i class="fab fa-facebook-f social-icon-new"></i>
+                       <span class="cairo-font" data-key="platform_facebook">فيسبوك</span>
+                   </a>
+                   <a href="https://www.tiktok.com/@aliim715" target="_blank" class="social-card-new tiktok">
+                       <i class="fab fa-tiktok social-icon-new"></i>
+                       <span class="cairo-font" data-key="platform_tiktok">تيك توك</span>
+                   </a>
+                   <a href="https://x.com/aliim714" target="_blank" class="social-card-new twitter">
+                        <i class="fab fa-twitter social-icon-new"></i>
+                        <span class="cairo-font" data-key="platform_twitter">تويتر</span>
+                    </a>
+                    <a href="https://www.snapchat.com/add/aliim714" target="_blank" class="social-card-new snapchat">
+                        <i class="fab fa-snapchat social-icon-new"></i>
+                        <span class="cairo-font" data-key="platform_snapchat">سناب شات</span>
+                    </a>
+               </div>
+            </div>
+       </section>
+        
+    </main>
+
+    <footer>
+        <div class="container footer-container">
+            <p data-key="footer_copyright">© 2025 | صُنع بواسطة معجب</p>
+            <p data-key="footer_contact">للتواصل التجاري: a0liim714@gmail.com</p>
+            <p data-key="footer_tagline">عبدالعليم العامري | يوتيوبر رحالة</p>
+			<p data-key="footer_bio"> يمني  | عايش في هولندا </p>
+        </div>
+    </footer>
+
+    <script>
+        const translations = {
+            "ar": {
+                "page_title": "عبدالعليم العامري | رحّالة حول العالم", "nav_about": "عني", "nav_journey": "رحلتي", "nav_digital_presence": "التواجد الرقمي", "nav_contact": "التواصل",
+                "hero_subtitle": "عبدالعليم العامري | يوتيوبر رحالة، صانع محتوى، فلوكر",
+                "hero_description": "إحسان يتلو إحسان حتى آخر لحظة في الحياة. نسافر لنعيد اكتشاف الأمل في الإنسانية، نكسر الحواجز، ونقترب من الشعوب، ونفهم الحقيقة، ونعرف من نحن. قناتي منبر لكل عربي يفكر بعمق. معاً سنرى تجارب اجتماعية، تحليل سياسي، وأسئلة من شوارع أوروبا. هدفي هو جمع حكمة الشرق وحداثة الغرب. انضموا لعائلتي المتواضعة (#عائلة_عليم) - لن تندموا. ❤️",
+                "hero_cta": "اكتشف رحلاتي",
+                "about_quote": "أنا عبدالعليم العامري من اليمن وأعيش في هولندا، أقدم تحليلات سياسية وتجارب اجتماعية وأشارك رؤيتي الفكرية.",
+                "about_p": "أسلوبي المميز في تقديم التحليل السياسي والتجارب الاجتماعية جذب آلاف المهتمين بفهم التعقيدات الاجتماعية في أوروبا. قناتي ليست مجرد محتوى، بل هي دعوة للتفكير والنقاش، تفتح في كل فيديو أفقاً جديداً من الفهم والوعي. وهدفي أن أسافر كل أوروبا 🇪🇺 وأنقل لكم أعمق اللقاءات والحوارات من كل البلدان!",
+                "stat1_label": "مشاهدة واكثر", "stat2_label": "مشترك واكثر", "stat3_label": "فيديو واكثر", "stat4_label": "دولة واكثر زارها",
+                "stat2_label_short": "مشترك", "stat3_label_short": "فيديو", "followers": "متابع", "likes": "إعجاب",
+                "timeline1_title": "بصمة رقمية مؤثرة", "timeline1_desc": "تأثير واسع في أنحاء الوطن العربي بملايين المتابعين.",
+                "timeline2_title": "الهدف العالمي", "timeline2_desc": "يسعى لتصوير فيديو من كل دولة في العالم، وقد أنجز الكثير.",
+                "presence_title": "التواجد الرقمي",
+                "total_title": "الإجمالي على المنصات", "total_subtitle": "متابع ومشترك",
+                "platform_youtube": "يوتيوب", "platform_tiktok": "تيك توك", "platform_instagram": "انستغرام", "platform_facebook": "فيسبوك", "platform_twitter": "تويتر (X)", "platform_snapchat": "سناب شات",
+                "facebook_bio": "شخص عادي جدا وعندي هواية السفر", "tiktok_bio": "يوتيوبر🧭", "instagram_bio": "يوتيوبر🧭",
+                "support_title": "الدعم المادي", "support_desc": "للمساعدة على الاستمرار في تقديم محتوى هادف ومميز.", "support_cta": "ادعم عبر PayPal",
+                "contact_title": "التواصل التجاري", "contact_desc": "للدعاية والشراكة، يرجى التواصل مع مدير الأعمال واتس أو اتصال:", "contact_whatsapp": "واتساب", "contact_call": "اتصال",
+                "social_title": "تابع المغامرة",
+                "footer_copyright": "© 2025 | صنع بواسطة معجب", "footer_contact": "للتواصل التجاري: a0liim714@gmail.com", "footer_tagline": "عبدالعليم العامري | يوتيوبر رحالة", "footer_bio": "يمني | يعيش في هولندا"
+            },
+            "en": {
+                "page_title": "Abdulalem Mareai | World Traveler", "nav_about": "About", "nav_journey": "Journey", "nav_digital_presence": "Digital Presence", "nav_contact": "Contact",
+                "hero_subtitle": "Abdulalem Mareai | Travel YouTuber, Content Creator, Vlogger",
+                "hero_description": "Goodness follows goodness until the last moment of life. We travel to rediscover hope in humanity, break barriers, get closer to people, understand the truth, and know ourselves. My channel is a platform for every deep-thinking Arab. Together, we'll see social experiments, political analysis, and questions from the streets of Europe. My goal is to merge the wisdom of the East with the modernity of the West. Join my humble family (#Alim_Family) - you won't regret it. ❤️",
+                "hero_cta": "Discover My Journeys",
+                "about_quote": "I am Abdulalem Mareai from Yemen, living in the Netherlands. I present political analysis, social experiments, and share my intellectual vision.",
+                "about_p": "My unique style of presenting political analysis and social experiments has attracted thousands interested in understanding Europe's social complexities. My channel is not just content; it's an invitation to think and discuss, opening new horizons of understanding with every video. My goal is to travel all over Europe 🇪🇺 and bring you the most profound encounters and dialogues from every country!",
+                "stat1_label": "Views & more", "stat2_label": "Subscribers & more", "stat3_label": "Videos & more", "stat4_label": "Countries Visited & more",
+                "stat2_label_short": "Subscribers", "stat3_label_short": "Videos", "followers": "Followers", "likes": "Likes",
+                "timeline1_title": "Influential Digital Footprint", "timeline1_desc": "Wide impact across the Arab world with millions of followers.",
+                "timeline2_title": "The Global Goal", "timeline2_desc": "Aims to film a video from every country in the world, having already completed much of it.",
+                "presence_title": "Digital Presence",
+                "total_title": "Total Across Platforms", "total_subtitle": "Followers & Subscribers",
+                "platform_youtube": "YouTube", "platform_tiktok": "TikTok", "platform_instagram": "Instagram", "platform_facebook": "Facebook", "platform_twitter": "Twitter (X)", "platform_snapchat": "Snapchat",
+                "facebook_bio": "A very ordinary person with a hobby of traveling.", "tiktok_bio": "YouTuber 🧭", "instagram_bio": "YouTuber 🧭",
+                "support_title": "Financial Support", "support_desc": "To help continue creating meaningful and unique content.", "support_cta": "Support via PayPal",
+                "contact_title": "Business Inquiries", "contact_desc": "For advertising and partnerships, please contact the business manager via WhatsApp or call:", "contact_whatsapp": "WhatsApp", "contact_call": "Call",
+                "social_title": "Follow the Adventure",
+                "footer_copyright": "© 2025 | Made by a fan", "footer_contact": "For business inquiries: a0liim714@gmail.com", "footer_tagline": "Abdulalem Mareai | Travel YouTuber", "footer_bio": "Yemeni | Living in the Netherlands"
+            },
+            "de": {
+                "page_title": "Abdulalem Mareai | Weltreisender", "nav_about": "Über mich", "nav_journey": "Reise", "nav_digital_presence": "Digitale Präsenz", "nav_contact": "Kontakt",
+                "hero_subtitle": "Abdulalem Mareai | Reise-YouTuber, Content-Ersteller, Vlogger",
+                "hero_description": "Güte folgt auf Güte bis zum letzten Moment des Lebens. Wir reisen, um die Hoffnung in der Menschheit wiederzuentdecken, Barrieren zu durchbrechen, Menschen näher zu kommen, die Wahrheit zu verstehen und uns selbst zu erkennen. Mein Kanal ist eine Plattform für jeden tief denkenden Araber. Gemeinsam werden wir soziale Experimente, politische Analysen und Fragen von den Straßen Europas sehen. Mein Ziel ist es, die Weisheit des Ostens mit der Modernität des Westens zu vereinen. Treten Sie meiner bescheidenen Familie bei (#Alim_Family) - Sie werden es nicht bereuen. ❤️",
+                "hero_cta": "Entdecke meine Reisen",
+                "about_quote": "Ich bin Abdulalem Mareai aus dem Jemen und lebe in den Niederlanden. Ich präsentiere politische Analysen, soziale Experimente und teile meine intellektuelle Vision.",
+                "about_p": "Mein einzigartiger Stil, politische Analysen und soziale Experimente zu präsentieren, hat Tausende angezogen, die daran interessiert sind, die sozialen Komplexitäten Europas zu verstehen. Mein Kanal ist nicht nur Inhalt; er ist eine Einladung zum Nachdenken und Diskutieren und eröffnet mit jedem Video neue Horizonte des Verständnisses. Mein Ziel ist es, ganz Europa 🇪🇺 zu bereisen und Ihnen die tiefgründigsten Begegnungen und Dialoge aus jedem Land zu bringen!",
+                "stat1_label": "Aufrufe & mehr", "stat2_label": "Abonnenten & mehr", "stat3_label": "Videos & mehr", "stat4_label": "Besuchte Länder & mehr",
+                "stat2_label_short": "Abonnenten", "stat3_label_short": "Videos", "followers": "Follower", "likes": "Likes",
+                "timeline1_title": "Einflussreicher digitaler Fußabdruck", "timeline1_desc": "Weitreichender Einfluss in der arabischen Welt mit Millionen von Followern.",
+                "timeline2_title": "Das globale Ziel", "timeline2_desc": "Ziel ist es, ein Video aus jedem Land der Welt zu filmen, ein Großteil davon ist bereits geschafft.",
+                "presence_title": "Digitale Präsenz",
+                "total_title": "Gesamt auf allen Plattformen", "total_subtitle": "Follower & Abonnenten",
+                "platform_youtube": "YouTube", "platform_tiktok": "TikTok", "platform_instagram": "Instagram", "platform_facebook": "Facebook", "platform_twitter": "Twitter (X)", "platform_snapchat": "Snapchat",
+                "facebook_bio": "Eine ganz normale Person mit dem Hobby Reisen.", "tiktok_bio": "YouTuber 🧭", "instagram_bio": "YouTuber 🧭",
+                "support_title": "Finanzielle Unterstützung", "support_desc": "Um weiterhin bedeutungsvolle und einzigartige Inhalte zu erstellen.", "support_cta": "Unterstützen über PayPal",
+                "contact_title": "Geschäftliche Anfragen", "contact_desc": "Für Werbung und Partnerschaften kontaktieren Sie bitte den Geschäftsmanager per WhatsApp oder Anruf:", "contact_whatsapp": "WhatsApp", "contact_call": "Anrufen",
+                "social_title": "Folge dem Abenteuer",
+                "footer_copyright": "© 2025 | Erstellt von einem Fan", "footer_contact": "Für geschäftliche Anfragen: a0liim714@gmail.com", "footer_tagline": "Abdulalem Mareai | Reise-YouTuber", "footer_bio": "Jemenit | Lebt in den Niederlanden"
+            },
+            "nl": {
+                "page_title": "Abdulalem Mareai | Wereldreiziger", "nav_about": "Over mij", "nav_journey": "Reis", "nav_digital_presence": "Digitale Aanwezigheid", "nav_contact": "Contact",
+                "hero_subtitle": "Abdulalem Mareai | Reis-YouTuber, Content Creator, Vlogger",
+                "hero_description": "Goedheid volgt goedheid tot het laatste moment van het leven. We reizen om de hoop in de mensheid te herontdekken, barrières te doorbreken, dichter bij mensen te komen, de waarheid te begrijpen en onszelf te kennen. Mijn kanaal is een platform voor elke diepdenkende Arabier. Samen zullen we sociale experimenten, politieke analyses en vragen uit de straten van Europa zien. Mijn doel is om de wijsheid van het Oosten te combineren met de moderniteit van het Westen. Sluit je aan bij mijn bescheiden familie (#Alim_Family) - je zult er geen spijt van krijgen. ❤️",
+                "hero_cta": "Ontdek Mijn Reizen",
+                "about_quote": "Ik ben Abdulalem Mareai uit Jemen, wonend in Nederland. Ik presenteer politieke analyses, sociale experimenten en deel mijn intellectuele visie.",
+                "about_p": "Mijn unieke stijl van het presenteren van politieke analyses en sociale experimenten heeft duizenden aangetrokken die geïnteresseerd zijn in het begrijpen van de sociale complexiteit van Europa. Mijn kanaal is niet alleen content; het is een uitnodiging om na te denken en te discussiëren, en opent met elke video nieuwe horizonten van begrip. Mijn doel is om heel Europa 🇪🇺 te reizen en u de meest diepgaande ontmoetingen en dialogen uit elk land te brengen!",
+                "stat1_label": "Weergaven & meer", "stat2_label": "Abonnees & meer", "stat3_label": "Video's & meer", "stat4_label": "Bezochte Landen & meer",
+                "stat2_label_short": "Abonnees", "stat3_label_short": "Video's", "followers": "Volgers", "likes": "Vind-ik-leuks",
+                "timeline1_title": "Invloedrijke Digitale Voetafdruk", "timeline1_desc": "Brede impact in de Arabische wereld met miljoenen volgers.",
+                "timeline2_title": "Het Wereldwijde Doel", "timeline2_desc": "Streeft ernaar een video uit elk land ter wereld te filmen, en heeft al veel voltooid.",
+                "presence_title": "Digitale Aanwezigheid",
+                "total_title": "Totaal op alle Platforms", "total_subtitle": "Volgers & Abonnees",
+                "platform_youtube": "YouTube", "platform_tiktok": "TikTok", "platform_instagram": "Instagram", "platform_facebook": "Facebook", "platform_twitter": "Twitter (X)", "platform_snapchat": "Snapchat",
+                "facebook_bio": "Een heel gewoon persoon met als hobby reizen.", "tiktok_bio": "YouTuber 🧭", "instagram_bio": "YouTuber 🧭",
+                "support_title": "Financiële Steun", "support_desc": "Om te helpen bij het blijven creëren van betekenisvolle en unieke content.", "support_cta": "Steun via PayPal",
+                "contact_title": "Zakelijke Vragen", "contact_desc": "Voor adverteren en partnerschappen, neem contact op met de business manager via WhatsApp of bel:", "contact_whatsapp": "WhatsApp", "contact_call": "Bellen",
+                "social_title": "Volg het Avontuur",
+                "footer_copyright": "© 2025 | Gemaakt door een fan", "footer_contact": "Voor zakelijke vragen: a0liim714@gmail.com", "footer_tagline": "Abdulalem Mareai | Reis-YouTuber", "footer_bio": "Jemeniet | Woonachtig in Nederland"
+            }
+        };
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const navbar = document.querySelector('.navbar');
+            const languageSwitcher = document.querySelector('.language-dropdown');
+            const elementsToTranslate = document.querySelectorAll('[data-key]');
+
+            // Navbar scroll effect
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    navbar.classList.add('scrolled');
+                } else {
+                    navbar.classList.remove('scrolled');
+                }
+            });
+            
+            const setLanguage = (lang) => {
+                elementsToTranslate.forEach(el => {
+                    const key = el.getAttribute('data-key');
+                    if (translations[lang] && translations[lang][key]) {
+                        el.innerHTML = translations[lang][key];
+                    }
+                });
+                document.documentElement.lang = lang;
+                document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
+                document.body.className = `lang-${lang}`;
+                document.getElementById('current-lang').innerText = lang === 'ar' ? 'العربية' : lang === 'en' ? 'English' : lang === 'de' ? 'Deutsch' : 'Nederlands';
+                localStorage.setItem('language', lang);
+            };
+
+            languageSwitcher.addEventListener('click', (e) => {
+                e.preventDefault();
+                const lang = e.target.getAttribute('lang');
+                if(lang) setLanguage(lang);
+            });
+
+            setLanguage(localStorage.getItem('language') || 'ar');
+
+            const formatFinalNumber = (num) => {
+                if (num >= 1000000) return (num / 1000000).toLocaleString('en-US', { minimumFractionDigits: 1, maximumFractionDigits: 1 }) + 'M';
+                if (num >= 1000) return (num / 1000).toLocaleString('en-US', { maximumFractionDigits: 0 }) + 'K';
+                return num.toLocaleString('en-US');
+            }
+
+            const animateCounter = (el) => {
+                const target = +el.getAttribute('data-target') || +el.innerText.replace(/,/g, '');
+                if (isNaN(target) || el.dataset.animated) return;
+                el.dataset.animated = true;
+                const duration = 2000;
+                let startTime = null;
+                const animate = (timestamp) => {
+                    if (!startTime) startTime = timestamp;
+                    const progress = timestamp - startTime;
+                    const currentNum = Math.min(Math.floor((progress / duration) * target), target);
+                    el.innerText = currentNum.toLocaleString('en-US');
+                    if (progress < duration) {
+                        requestAnimationFrame(animate);
+                    } else {
+                        el.innerText = formatFinalNumber(target);
+                    }
+                };
+                requestAnimationFrame(animate);
+            };
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const counters = entry.target.querySelectorAll('.counter, .stat-number');
+                        counters.forEach(counter => animateCounter(counter));
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            document.querySelectorAll('.journey-stats-section, #digital-presence').forEach(section => {
+                observer.observe(section);
+            });
+        });
+    </script>
+</body>
+</html>
